@@ -19,6 +19,7 @@ sap.ui.define([
 
                /* Get user profile */
                 this.getUserProfile();
+                //Hello world 
 
             },
          /**
