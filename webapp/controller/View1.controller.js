@@ -33,7 +33,7 @@ sap.ui.define([
                     );
                 }
             this.moreBankDetails.then(
-                    function (oDialog) {
+                    function (oDialog) {git 
                         oDialog.open();
                     });
             },
