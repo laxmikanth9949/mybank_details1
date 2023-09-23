@@ -19,6 +19,7 @@ sap.ui.define([
 
                /* Get user profile */
                 this.getUserProfile();
+                //Hello world 
 
             },
          /**
@@ -32,7 +33,7 @@ sap.ui.define([
                     );
                 }
             this.moreBankDetails.then(
-                    function (oDialog) {
+                    function (oDialog) {git 
                         oDialog.open();
                     });
             },
