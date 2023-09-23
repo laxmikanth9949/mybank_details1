@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns:core = "sap.ui.core"
+    xmlns="sap.m"
+    xmlns:m= "sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout"
+    >
+
+    <Panel id="pAccountDetails" expandable="false"  width="auto" class="sapUiResponsiveMargin">
+       <!-- headerText="Account Details"  Removed as per the new requirement by Naveen  -->
+        <content>
+
+
+            <HBox id="hBox4">
+
+                <Avatar id="aUserProfile" 
+                src="{/profile}" displaySize="XL" 
+                showBorder="true" 
+                press="onPress"/>
+
+
+                <VBox id="vBox1" binding="{oBankDetails>/accountdetails}" class="sapUiSmallMargin sapUiLargeMarginBegin">
+
+                    <!-- <Title text="{i18n>accDetails}" id="accDetails" level="H1"/> -->
+
+                    <HBox id="hBox1">
+                        <Label id="lblacnum" text="{i18n>accNum}" class="sapUiSmallMarginEnd"/>
+                        <Text id="accountNum" text="{oBankDetails>accountnum}"/>
+                    </HBox>
+
+                    <HBox id="hBox2">
+                        <Label id="lblAcHolderNameId" text="{i18n>accHName}" class="sapUiSmallMarginEnd"/>
+                        <Text id="idAcHolderNameValue" text="{oBankDetails>name}"/>
+                    </HBox>
+
+                    <HBox id="hBox3" class="sapUiSmallMarginBottom">
+                        <Label id="lblIFSCId" text="{i18n>iFSCode}" class="sapUiSmallMarginEnd"/>
+                        <Text id="idIFSCValue" text="{oBankDetails>ifsc}"/>
+                    </HBox>
+
+
+                    <Button id="openBankDetails" type="Neutral" text="{i18n>findMoreBtn}" press=".onOpenBankDetails" />
+
+                </VBox>
+
+
+	<FlexBox id="flexBox1" width="20rem" height="10rem" alignItems="Start" justifyContent="SpaceBetween">
+		<items>
+			<m:InteractiveDonutChart id="donutchart" selectionChanged="onSelectionChanged">
+				<m:segments>
+					<m:InteractiveDonutChartSegment id="chart1" 
+                    label="{i18n>houseSpending}" value="{oBankDetails>/housespending}" 
+                    displayedValue="{path: 'oBankDetails>/housespending', 
+                    formatter: '.formatter.getPercentage'}%" 
+                    color="{path: 'oBankDetails>/housespending', formatter: '.formatter.getState'}"/>
+					<m:InteractiveDonutChartSegment id="chart2" 
+                    label="{i18n>loanEMI}" 
+                    value="{oBankDetails>/emi}" 
+                    displayedValue="{path: 'oBankDetails>/emi', 
+                    formatter: '.formatter.getPercentage'}%" 
+                    color="{path: 'oBankDetails>/emi',formatter: '.formatter.getState'}"/>
+					<m:InteractiveDonutChartSegment id="chart3" 
+                    label="{i18n>entertainment}" 
+                    value="{oBankDetails>/entertainment}" 
+                    displayedValue="{path:'oBankDetails>/entertainment',
+                    formatter: '.formatter.getPercentage'}%"
+                    color="{path: 'oBankDetails>/entertainment', formatter:'.formatter.getState'}"/>
+				</m:segments>
+			</m:InteractiveDonutChart>
+		</items>
+	</FlexBox>
+            </HBox>
+
+
+        </content>
+    </Panel>
+
+
+
+
+</core:FragmentDefinition>
